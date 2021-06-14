@@ -1,0 +1,18 @@
+1: 4wayStop: Kreuzung 
+2: jaywalker: Fußgänger überquert Straße (an nicht markierter Stelle)
+3: smoothTruck: LKW auf Autobahn vor Fahrzeug
+4: carsComing: Einbiegendes Fahrzeug hat Vorfahrt
+5: aroundTruck: LKW überholen der steht
+6: rampHighway: Vorfahrt für Auto das auf die Auffahrt zur Autobahn fährt
+7: turnRight: Auf Fußgänger vor rechtsabbiegen warten
+8: truckComing: Einbiegender LKW hat Vorfahrt
+9: aroundCar: Auto überholen das steht
+10: signPerson: An einem Bettler vorbeifahren
+11: passBiker: Radfahrer überholen
+12: doubleLaneChange: Zwei Mal die Spur wechseln mit kurzer Pause
+13: blinkingRed: Stoppschild
+14: changeLanes: die Spurwechseln
+15: runYellow: Bei gelb über die Ampel fahren
+16: pigeonCrossing: Taube überquert die Fahrbahn
+17: construction worker: An aussteigendem Bauerbeiter vorbeifahren
+18: dpassPedestrian: Fußgänger kommt auf Zebrastreifen zu 
