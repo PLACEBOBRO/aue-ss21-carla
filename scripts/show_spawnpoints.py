@@ -31,8 +31,7 @@ try:
     waypoint_list = map.generate_waypoints(2.0)
     # Draw spawn points
     points = map.get_spawn_points()
-    print(dir(points[0]))
-    print(points[0].location)
+    print(len(points))
     number = 0
     for waypoint in points:
         world.debug.draw_string(waypoint.location, str(number), draw_shadow=False,color=carla.Color(r=255, g=255, b=255), life_time=1000,persistent_lines=True)
