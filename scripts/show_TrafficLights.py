@@ -14,25 +14,21 @@ except IndexError:
 
 import carla
 
-
 client = carla.Client('127.0.0.1', 2000)
 client.set_timeout(10.0)
 synchronous_master = False
 
 world = client.get_world()
-blueprints = world.get_blueprint_library().filter('vehicle.*')
+traffic_lights = world.get_actors().filter("traffic.traffic_light")
 
 try:
-    print("Drawing Spawnpoints on Map")
-    map = world.get_map()
-    waypoint_list = map.generate_waypoints(2.0)
+    print("Drawing TrafficLights on Map")
     # Draw spawn points
-    points = map.get_spawn_points()
-    print(len(points))
+    print(len(traffic_lights))
     number = 0
-    for waypoint in points:
-        world.debug.draw_string(waypoint.location, str(number), draw_shadow=False,color=carla.Color(r=255, g=255, b=255), life_time=100000,persistent_lines=True)
-        number += 1
+    for light in traffic_lights:
+        world.debug.draw_string(light.get_location(), str(light.id), draw_shadow=False,color=carla.Color(r=255, g=0, b=0), life_time=100000,persistent_lines=True)
+
 finally:
     print('Done')
 

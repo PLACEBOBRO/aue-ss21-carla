@@ -46,6 +46,7 @@ def onPress(key):
             player_rotation = carla.Rotation(0,pedestrian_heading,0)
             player_control.direction = player_rotation.get_forward_vector()
             player.apply_control(player_control)
+            print("Walker spawned")
             
     except Exception as e:
         print("Exception occured: " + str(e))
