@@ -1,7 +1,8 @@
 # Master Script to connect to Carla and spawn Situations
 # TODO: Maybe add Shift+F?? to kill situational entities?
-# TODO: Find a place with only crosswalk for Situation "Pass pedestrian"
-# TODO: Situation Blinking Red & 4Way Stop the same?
+# TODO: Make situations not terminate
+# TODO: Find position for Situation F1
+# TODO: Fix TrafficLight ID
 
 import glob
 import os
@@ -34,6 +35,7 @@ from situations import passBiker
 from situations import changeLanes
 from situations import blinkingRed
 from situations import runYellow
+from situations import passPedestrian
 
 
 entities = []
@@ -73,8 +75,7 @@ def onPress(key):
         if str(key) == 'Key.f9':
             runYellow.start(world)
         if str(key) == 'Key.f10':
-            print("Starting Situation: pass Pedestrian")
-            # TODO: Edit and import Situation, find a place with ONLY crosswalk
+            entities.append(passPedestrian.start(world))
         if str(key) == 'Key.f12':
             print("Killing last spawned entities")
             for actor in entities:
