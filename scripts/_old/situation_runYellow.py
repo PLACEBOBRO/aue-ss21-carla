@@ -4,7 +4,7 @@ import sys
 import time
 from pynput import keyboard
 
-# Gets the actor (see below) and turns the next traffic light yellow
+# NOT WORKING!
 
 
 try:

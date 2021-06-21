@@ -3,12 +3,13 @@
 import carla
 from numpy import random
 
-def start(world):
+def start(world,lights):
     print("lib:Starting Situation passPedestrian")
     # turning off traffic lights
-    lights = [68,69,77]
-    for light in lights:
-        world.get_actor(light).set_state(carla.TrafficLightState.Off)
+    group = lights.get_group_traffic_lights()
+    print(group)
+    for light in group:
+        light.set_state(carla.TrafficLightState.Off)
     print("Traffic Light off")
     # spawn Walker
     # Spawn_Point: Edited spawn_points[129]

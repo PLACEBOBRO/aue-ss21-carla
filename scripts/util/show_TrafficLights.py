@@ -25,7 +25,8 @@ try:
     print("Drawing TrafficLights on Map")
     # Draw spawn points
     print(len(traffic_lights))
-    number = 0
+    print(dir(traffic_lights[0]))
+    # print(world.get_actor(85).get_pole_index())
     for light in traffic_lights:
         world.debug.draw_string(light.get_location(), str(light.id), draw_shadow=False,color=carla.Color(r=255, g=0, b=0), life_time=100000,persistent_lines=True)
 

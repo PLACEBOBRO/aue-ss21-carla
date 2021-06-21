@@ -2,9 +2,8 @@
 
 import carla
 
-def start(world):
+def start(world,light):
     print("lib:Starting Situation runYellow")
-    light = world.get_actor(55)
     # print(light)
     if light.get_state() == carla.TrafficLightState.Green:
         light.set_state(carla.TrafficLightState.Yellow)

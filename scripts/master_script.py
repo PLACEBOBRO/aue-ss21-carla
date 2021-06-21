@@ -25,6 +25,10 @@ client.set_timeout(10.0)
 synchronous_master = False
 world = client.get_world()
 
+# import util
+
+from util import getTrafficLights
+
 # import situations
 
 from situations import jaywalker
@@ -39,6 +43,7 @@ from situations import passPedestrian
 
 
 entities = []
+trafficLights = []
 print("Press Key for Spawning Situations")
 print("F1: 4 Way Stop")
 print("F2: Jaywalker")
@@ -54,6 +59,7 @@ print("F12: kill spawned entities")
 
 def onPress(key):
     global entities
+    global trafficLights
     try:
         if str(key) == 'Key.f1':
             print("Starting Situation: 4Way Stop")
@@ -73,9 +79,9 @@ def onPress(key):
         if str(key) == 'Key.f8':
             entities.append(changeLanes.start(world,client,traffic_manager))
         if str(key) == 'Key.f9':
-            runYellow.start(world)
+            runYellow.start(world,trafficLights[0])
         if str(key) == 'Key.f10':
-            entities.append(passPedestrian.start(world))
+            entities.append(passPedestrian.start(world,trafficLights[1]))
         if str(key) == 'Key.f12':
             print("Killing last spawned entities")
             for actor in entities:
@@ -89,13 +95,13 @@ try:
     # init traffic manager
     traffic_manager = client.get_trafficmanager(8000)
     traffic_manager.set_global_distance_to_leading_vehicle(1.0)
-    #needed?
-    traffic_manager.set_global_distance_to_leading_vehicle(1.0)
     traffic_manager.set_random_device_seed(9)
-    # -
+    # get traffic lights for F9 & F10
+    trafficLights = getTrafficLights.start(world)
+
     keyboardListener = keyboard.Listener(on_press=onPress)
     keyboardListener.start()
-
+    
     print("Done")
     while True:
         world.wait_for_tick()
