@@ -54,6 +54,7 @@ print("F7: blinking Red")
 print("F8: changeLanes")
 print("F9: runYellow")
 print("F10: pass Pedestrian")
+print("F11: kill all entities")
 print("F12: kill spawned entities")
 
 def onPress(key):
@@ -66,11 +67,11 @@ def onPress(key):
         if str(key) == 'Key.f2':
             entities.append(jaywalker.start(world))
         if str(key) == 'Key.f3':
-            entities.append(aroundTruck.start(world))
+            entities.append(aroundTruck.start(world,client,traffic_manager))
         if str(key) == 'Key.f4':
             entities.append(turnRight.start(world))
         if str(key) == 'Key.f5':
-            entities.append(aroundCar.start(world))
+            entities.append(aroundCar.start(world,client,traffic_manager))
         if str(key) == 'Key.f6':
             entities.append(passBiker.start(world,client,traffic_manager))
         if str(key) == 'Key.f7':
@@ -81,6 +82,11 @@ def onPress(key):
             runYellow.start(world,trafficLights[0])
         if str(key) == 'Key.f10':
             entities.append(passPedestrian.start(world,trafficLights[1]))
+        if str(key) == 'Key.f11':
+            for actor in world.get_actors().filter("vehicle.*"):
+                actor.destroy()
+            for walker in world.get_actors().filter("walker.*"):
+                walker.destroy()
         if str(key) == 'Key.f12':
             print("Killing last spawned entities")
             for actor in entities:
@@ -107,7 +113,6 @@ try:
 finally:
     print("ERROR EXCEPTED THE SCRIPT!")
     print('DESTROYING SPAWNED ACTORS')
-    #TODO: add walkers to be removed
     for actor in world.get_actors().filter("vehicle.*"):
         actor.destroy()
     for walker in world.get_actors().filter("walker.*"):
