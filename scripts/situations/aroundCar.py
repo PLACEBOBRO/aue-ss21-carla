@@ -1,7 +1,9 @@
 # Library function to start situation around Car
 
 import carla
+import time
 from numpy import random
+
 
 def start(world):
     print("lib:Starting Situation around Car")
@@ -12,5 +14,4 @@ def start(world):
     if car is not None:
         car.apply_control(carla.VehicleControl(brake=1.0))
     return car
-    print("Spawned")
-
+    print("terminated")

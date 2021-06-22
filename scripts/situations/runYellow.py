@@ -5,9 +5,12 @@ import carla
 def start(world,light):
     print("lib:Starting Situation runYellow")
     # print(light)
-    if light.get_state() == carla.TrafficLightState.Green:
+    if light.is_frozen() == True:
+        light.freeze(False)
         light.set_state(carla.TrafficLightState.Yellow)
         print("Traffic Light Changed")
     else:
-        print("Light was red/yellow")
+        light.freeze(True)
+        light.set_state(carla.TrafficLightState.Green)
+        print("Light frozen")
     # No return here

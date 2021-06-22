@@ -1,6 +1,5 @@
 # Master Script to connect to Carla and spawn Situations
-# TODO: Maybe add Shift+F?? to kill situational entities?
-# TODO: Make situations not terminate
+# WARNING: If walkers dont spawn first time, just try again.
 # TODO: Find position for Situation F1
 # TODO: Fix TrafficLight ID
 

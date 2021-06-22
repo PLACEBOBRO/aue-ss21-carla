@@ -1,6 +1,6 @@
 # Library function to get traffic lights
 # Location Traffic Light Situation F9: Location(x=249.399994, y=46.070000, z=0.200000)
-# Location Traffic Light Situation F10:
+# Location Traffic Light Situation F10: Location(x=20.463360, y=-187.895172, z=0.148411)
 import carla
 from numpy import random
 
@@ -15,7 +15,7 @@ def start(world):
         # print(str(light.get_location()))
         if str(light.get_location()) == "Location(x=249.399994, y=46.070000, z=0.200000)":
             F9 = light
-        if str(light.get_location()) == "Location(x=95.532082, y=-214.192078, z=0.014180)":
+        if str(light.get_location()) == "Location(x=20.463360, y=-187.895172, z=0.148411)":
             F10 = light
     print(F9)
     print(F10)
