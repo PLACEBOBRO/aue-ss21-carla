@@ -1,7 +1,5 @@
 # Master Script to connect to Carla and spawn Situations
 # WARNING: If walkers dont spawn first time, just try again.
-# TODO: Find position for Situation F1
-# TODO: Fix TrafficLight ID
 
 import glob
 import os
