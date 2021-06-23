@@ -67,7 +67,7 @@ def onPress(key):
         if str(key) == 'Key.f3':
             entities.append(aroundTruck.start(world,client,traffic_manager))
         if str(key) == 'Key.f4':
-            entities.append(turnRight.start(world))
+            entities.append(turnRight.start(world,[trafficLights[2],trafficLights[3]]))
         if str(key) == 'Key.f5':
             entities.append(aroundCar.start(world,client,traffic_manager))
         if str(key) == 'Key.f6':
