@@ -88,7 +88,8 @@ def onPress(key):
         if str(key) == 'Key.f12':
             print("Killing last spawned entities")
             for actor in entities:
-                actor.destroy()
+                if actor != None:
+                    actor.destroy()
             entities = []
     except Exception as e:
         print("Exception occured: " + str(e))
