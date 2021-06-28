@@ -61,13 +61,13 @@ def onPress(key):
     global trafficLights
     try:
         if str(key) == 'Key.f1':
-            entities.append(fourWay.start(world,trafficLights[4],client,traffic_manager))
+            entities.extend(fourWay.start(world,trafficLights[4],client,traffic_manager))
         if str(key) == 'Key.f2':
             entities.append(jaywalker.start(world))
         if str(key) == 'Key.f3':
             entities.append(aroundTruck.start(world,client,traffic_manager))
         if str(key) == 'Key.f4':
-            entities.append(turnRight.start(world,[trafficLights[2],trafficLights[3]]))
+            entities.extend(turnRight.start(world,[trafficLights[2],trafficLights[3]]))
         if str(key) == 'Key.f5':
             entities.append(aroundCar.start(world,client,traffic_manager))
         if str(key) == 'Key.f6':
