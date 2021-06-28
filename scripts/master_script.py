@@ -37,6 +37,7 @@ from situations import changeLanes
 from situations import blinkingRed
 from situations import runYellow
 from situations import passPedestrian
+from situations import fourWay
 
 
 entities = []
@@ -60,8 +61,7 @@ def onPress(key):
     global trafficLights
     try:
         if str(key) == 'Key.f1':
-            print("Starting Situation: 4Way Stop")
-            # TODO: Edit and import Situation
+            entities.append(fourWay.start(world,trafficLights[4],client,traffic_manager))
         if str(key) == 'Key.f2':
             entities.append(jaywalker.start(world))
         if str(key) == 'Key.f3':

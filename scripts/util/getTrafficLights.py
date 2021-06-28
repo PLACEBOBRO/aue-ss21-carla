@@ -1,4 +1,5 @@
 # Library function to get traffic lights
+# Location Traffic Light Situation F1: Location(x=16.628286, y=-146.755920, z=0.000000)
 # Location Traffic Light Situation F4.1: Location(x=-94.057716, y=28.359629, z=0.109092)
 # Location Traffic Light Situation F4.2: Location(x=-66.787178, y=142.753357, z=0.147905)
 # Location Traffic Light Situation (F9): Location(x=249.399994, y=46.070000, z=0.200000) (Backup Location)
@@ -26,7 +27,9 @@ def start(world):
             F41 = light
         if str(light.get_location()) == "Location(x=-66.787178, y=142.753357, z=0.147905)":
             F42 = light
-    lights = [F9,F10,F41,F42]
+        if str(light.get_location()) == "Location(x=16.628286, y=-146.755920, z=0.000000)":
+            F1 = light
+    lights = [F9,F10,F41,F42,F1]
     print(lights)
     print("Finished Traffic Lights")
     return lights
